@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>       
+   
+    <dimen name="loading_text_size">30sp</dimen>
+    <dimen name="use_tips_text_size">25sp</dimen>
+    <!-- 导航字号 -->
+    <dimen name="nav_text_size">16sp</dimen>
+    <dimen name="statement_text_size">16sp</dimen>
+    <dimen name="nav_marg_top">38dp</dimen>
+    <!-- 个人中心 设置item 字号 -->
+    <dimen name="list_item_size">14sp</dimen>
+    <!-- dialog内容字号 -->
+    <dimen name="dialog_text_size">18sp</dimen>
+    <dimen name="update_dialog_text_size">18sp</dimen>
+    <dimen name="dialog_list_text_size">13sp</dimen>
+    <dimen name="dialog_image_marg_top">20dp</dimen>
+    <dimen name="dialog_btn_text_size">16sp</dimen>
+    <dimen name="dialog_icon_marg_top">15dp</dimen>
+    <dimen name="dialog_msg_marg_top">12dp</dimen>
+    <dimen name="dialog_btn_layout_marg">15dp</dimen>
+    
+    <dimen name="feed_back_text_size1">20sp</dimen>
+    <dimen name="feed_back_text_size2">18sp</dimen>
+    <dimen name="main_content_layout_marg_top">19dp</dimen>
+    <dimen name="fragment_list_width">300dp</dimen>
+    <dimen name="main_bottom_tips_text_size">13sp</dimen>
+    <dimen name="invite_textsize_1">14sp</dimen>
+    <dimen name="invite_textsize_2">12sp</dimen>
+    <dimen name="invite_icon_marg_top">12dp</dimen>
+    <dimen name="invite_tips_marg_top">5dp</dimen>
+    <dimen name="invite_marg_bottom">20dp</dimen>
+    
+    <dimen name="help_title_textsize">20sp</dimen>
+    <dimen name="help_tips_textsize">14sp</dimen>
+    <dimen name="help2_marg_left">100dp</dimen>
+    <dimen name="arrow2_marg_top">70dp</dimen>
+    <dimen name="help2_marg_top">70dp</dimen>  
+    <dimen name="help2_item_marg_top">25dp</dimen>
+    <dimen name="help2_shadow_marg_left">40dp</dimen>
+    
+    <dimen name="arrow3_marg_top">120dp</dimen>
+    <dimen name="game_title_marg_top">18dp</dimen>
+    
+    <dimen name="statment_icon_marg_left">100dp</dimen>
+	<dimen name="statment_icon_marg_top">60dp</dimen>
+	<dimen name="statment_tips_marg_left">36dp</dimen>
+	<dimen name="statment_tips_text_size">14sp</dimen>
+	
+	<dimen name="test_net_toptv_size">20sp</dimen>
+	
+	<dimen name="game_item_tip_text_size">12sp</dimen>
+    <dimen name="game_item_name_text_size">14sp</dimen>
+    <dimen name="welcome_progress_marg_bottom">160dp</dimen>
+    <dimen name="net_test_result_text_size">25sp</dimen>
+    
+    <dimen name="user_layout_hight">550dp</dimen>
+    <dimen name="test_result_marg_top">25dp</dimen>
+    <dimen name="test_result_text_marg_top">10dp</dimen>
+    <dimen name="recommend_gallery_height">390dp</dimen>
+    <dimen name="history_gallery_height">390dp</dimen>
+    <dimen name="recomend_shadow_gallerh_hight">290dp</dimen>
+    <dimen name="recomend_title_text_size">14sp</dimen>
+    <dimen name="recomend_content_text_size">12sp</dimen>
+    <dimen name="recommend_content_text_height">30sp</dimen>
+    <dimen name="user_level_width">160dp</dimen>
+    
+    <dimen name="user_center_widht1">330dp</dimen>
+    <dimen name="user_center_hight1">402dp</dimen>
+    <dimen name="user_set_widht">330dp</dimen>
+    <dimen name="user_set_hight">402dp</dimen>
+    <dimen name="user_center_content1_widht">166dp</dimen>
+    <dimen name="user_center_content1_hith">290dp</dimen>
+    <dimen name="user_center_content1_marg_left">67dp</dimen>
+    <dimen name="user_center_content1_marg_to">27dp</dimen>
+    <dimen name="user_center_content2_marg_left">160dp</dimen>
+    <dimen name="user_center_shadow2_width">376dp</dimen>
+    <dimen name="user_center_content2_width">172dp</dimen>
+    <dimen name="user_center_shadow2_marg_left">105dp</dimen>
+    <dimen name="user_center_marg_left">365dp</dimen>
+    <dimen name="user_center_content4_marg_left">568dp</dimen>
+    <dimen name="user_center_content5_marg_left">771dp</dimen>
+    <dimen name="user_center_shadow5_width">337dp</dimen>
+    <dimen name="user_set_marg_left">355dp</dimen>
+    <dimen name="user_set_shadow_width">340dp</dimen>
+    <dimen name="user_center_button_marg">25dp</dimen>
+    <dimen name="user_icon_marg_top">30dp</dimen>
+    <dimen name="helper_tv_marg_top">50dp</dimen>
+    <dimen name="set_tv_marg_top">60dp</dimen>
+    <dimen name="game_detail_image_item_widht">312dp</dimen>
+    <dimen name="game_detail_image_item_hight">198dp</dimen>
+    <dimen name="game_info_widht">336dp</dimen>
+    <dimen name="game_info_hight">354dp</dimen>
+    <dimen name="game_info_pading">20dp</dimen>
+   	<dimen name="text_size">16dp</dimen>
+   	<dimen name="set_btn_width">112dp</dimen>
+   	<dimen name="game_detail_info_marg_top">5dp</dimen>
+   	<dimen name="game_detail_text_size">18dp</dimen>
+   	<dimen name="game_detail_btn_text_size">20sp</dimen>
+   	<dimen name="large_text">18dp</dimen>
+   	<dimen name="package_gallery_marg_top">50dp</dimen>
+   	<dimen name="dialog_mesg_mar_top">48dp</dimen>
+   	
+   	
+   	<!-- begin: 20151015 by HuangFeng  -->
+   	<dimen name="update_icon_mar_top">124px</dimen>   	
+   	<!-- end:   20151015 by HuangFeng  -->
+   	
+</resources>

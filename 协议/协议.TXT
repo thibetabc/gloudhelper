@@ -1,0 +1,58 @@
+﻿协议约定
+1. PhoneHelper Connect Client
+    Type[LoginRequest]
+    Version[uint32]       小格助手版本号
+    VersionName[string]   小格助手版本名称
+    Name[string]          小格助手名称
+    {"Type":"LoginRequest", "Version":20151231, "VersionName":"1.2.0", "Name":"PHONE_MODE"}
+
+2. Client send LoginResult
+    Type[LoginResult]
+    Code[0:OK,-1:Refuse,-2:NoPosition,-3:此版本已不再支持]
+    Position[0->3,-1:InvalidPosition]
+    Version[uint32]              大厅版本号
+    VersionName[string]          大厅版本名称
+    Channel[string]              大厅渠道号
+    AccountID[int]               用户ID
+    DeviceUUID[string]           设备UUID
+    ResponseForRequest[uint32]   表明是否为LoginRrequest的响应
+    {"Type":"LoginResult", "Code":0, "Position":2, "Version":20151231, "VersionName":"1.3.5", "Channel":"gloud", "ResponseForRequest":1, "AccountID":19, "DeviceUUID":"00000000-63b0-351f-0033-c5870033c587"}
+
+3. PhoneHelper send Joystick
+    Type[Joystick]
+    Buttons[uint32]
+    LeftTrigger[int]   左二扳机键,0~255,如果没有梯度则就是0或255
+    RightTrigger[int]  右二扳机键,0~255,如果没有梯度则就是0或255
+    ThumbLX[int]       左轴X,从左到右是-32768~32767
+    ThumbLY[int]       左轴Y,从下到上是-32768~32767
+    ThumbRX[int]       右轴X,从左到右是-32768~32767
+    ThumbRY[int]       左轴Y,从下到上是-32768~32767
+    {"Type":"Joystick", "Buttons": 58652478, "LeftTrigger":64, "RightTrigger":75, "ThumbLX":2345, "ThumbLY":9664, "ThumbRX":8763, "ThumbRY":7243}
+
+4. When need shock Client send Shock
+    Type[Shock]
+    Left[int]   0~65535
+    Right[int]  0~65535
+    {"Type":"Shock", "Left":378, "Right":129}
+
+5. Swap position
+    Type[SwapPosition]
+    NewPosition[0-3]
+    {"Type":"SwapPosition", "NewPosition":2}
+
+6. Swap position result
+    Type[SwapPositionResult]
+    Code[0:成功, -1:位置不存在, -2:已在该位置上, -3:拒绝]
+    Position[更换后的位置]
+    {"Type":"SwapPositionResult", "Code":0, "Position":2}
+
+7. Request Joystick Status
+    Type[RequestJoystickStatus]
+    {"Type":"RequestJoystickStatus"}
+
+8. Response For Request Joystick Status
+    Type[ResponseJoystickStatus]
+    Position[手柄位置索引]
+    Type[0:空,1:普通物理手柄,2:北通BFM模式手柄,3:小格助手]
+    Name[手柄名称]
+    {"Type":"ResponseJoystickStatus", "MyPosition":0, "Joysticks":[{"Name":"小格助手","Position":0,"Type":3},{"Name":"BETOP 2171S BFM","Position":1,"Type":1},{"Name":"--","Position":2,"Type":0},{"Name":"--","Position":3,"Type":0}]}

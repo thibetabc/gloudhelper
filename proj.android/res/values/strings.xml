@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">小格助手</string>
+   	<string name="current_version">当前版本:%s</string>
+    <string name="update_to">\n更新到:%s</string>     
+	<string name="download_client">正在下载格来云游戏</string>
+	<string name="download_helper">正在下载小格助手</string>
+	<string name="update_fail">更新失败</string>
+    <string name="title_exit_update">下载中</string>
+    <string name="text_exit_update">取消下载？</string>
+    <string name="button_ok">确定</string>
+    <string name="button_cancel">取消</string>
+	<string name="download_fail">下载失败</string>
+    <string name="progress">0%</string>
+    <string name="scan_text">将二维码放入框内, 即可自动扫描</string>
+    <string name="scan_image_choose">选择二维码图片</string>
+    <string name="scan_capturing">正在扫描...</string>
+</resources>

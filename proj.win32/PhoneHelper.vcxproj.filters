@@ -1,0 +1,284 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="win32">
+      <UniqueIdentifier>{84a8ebd7-7cf0-47f6-b75e-d441df67da40}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="resource">
+      <UniqueIdentifier>{715254bc-d70b-4ec5-bf29-467dd3ace079}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src">
+      <UniqueIdentifier>{bb6c862e-70e9-49d9-81b7-3829a6f50471}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\jsoncpp">
+      <UniqueIdentifier>{67c42ef4-b39b-4f6e-a00d-e23a4de1311c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\jsoncpp\include">
+      <UniqueIdentifier>{fa1e20e0-7954-4b90-842c-05655d21a0ed}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\jsoncpp\src">
+      <UniqueIdentifier>{a36e1a55-c898-417a-8ffd-75bf849969cd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\jsoncpp\include\json">
+      <UniqueIdentifier>{4aae77eb-26ff-436e-82e6-45c1e93ee252}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\vgc">
+      <UniqueIdentifier>{e4d2449c-99c3-4618-8391-f80ed1868759}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\socket">
+      <UniqueIdentifier>{d0f92e81-5b36-4998-90cd-e20a6db77a60}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp">
+      <Filter>win32</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\AppDelegate.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\jsoncpp\src\json_reader.cpp">
+      <Filter>src\jsoncpp\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\jsoncpp\src\json_value.cpp">
+      <Filter>src\jsoncpp\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\jsoncpp\src\json_writer.cpp">
+      <Filter>src\jsoncpp\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\TextTip.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\FindDeviceScene.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\VgcScene.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\DeviceControllerScene.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\XMLParser.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\BaseLayer.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\MoreScene.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\vgc\GameControllerButton.cpp">
+      <Filter>src\vgc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\vgc\GameControllerImage.cpp">
+      <Filter>src\vgc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\vgc\GameControllerJoystick.cpp">
+      <Filter>src\vgc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\vgc\GameControllerSwitch.cpp">
+      <Filter>src\vgc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\vgc\GameControllerTrigger.cpp">
+      <Filter>src\vgc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\vgc\VirtualGameController.cpp">
+      <Filter>src\vgc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\socket\ODSocket.cpp">
+      <Filter>src\socket</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\socket\ResPonseThread.cpp">
+      <Filter>src\socket</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\socket\SocketThread.cpp">
+      <Filter>src\socket</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\DeviceData.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Dialog.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\vgc\GameControllerDpad.cpp">
+      <Filter>src\vgc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\PopupLayer.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Toast.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\JniAndroid.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\GuideScene.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\LaunchScene.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\MyVgcScene.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\UIPageViewStandard.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\SetupScene.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\LoadingLayer.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\StringUtil.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\UploadData.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="main.h">
+      <Filter>win32</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\AppDelegate.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Global.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\jsoncpp\src\json_tool.h">
+      <Filter>src\jsoncpp\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\jsoncpp\include\json\assertions.h">
+      <Filter>src\jsoncpp\include\json</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\jsoncpp\include\json\autolink.h">
+      <Filter>src\jsoncpp\include\json</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\jsoncpp\include\json\config.h">
+      <Filter>src\jsoncpp\include\json</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\jsoncpp\include\json\features.h">
+      <Filter>src\jsoncpp\include\json</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\jsoncpp\include\json\forwards.h">
+      <Filter>src\jsoncpp\include\json</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\jsoncpp\include\json\json.h">
+      <Filter>src\jsoncpp\include\json</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\jsoncpp\include\json\reader.h">
+      <Filter>src\jsoncpp\include\json</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\jsoncpp\include\json\value.h">
+      <Filter>src\jsoncpp\include\json</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\jsoncpp\include\json\version.h">
+      <Filter>src\jsoncpp\include\json</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\jsoncpp\include\json\writer.h">
+      <Filter>src\jsoncpp\include\json</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\TextTip.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\FindDeviceScene.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\VgcScene.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\DeviceControllerScene.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\XMLParser.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\BaseLayer.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\MoreScene.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\StringUtil.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\vgc\GameControllerButton.h">
+      <Filter>src\vgc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\vgc\GameControllerDef.h">
+      <Filter>src\vgc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\vgc\GameControllerImage.h">
+      <Filter>src\vgc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\vgc\GameControllerJoystick.h">
+      <Filter>src\vgc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\vgc\GameControllerSwitch.h">
+      <Filter>src\vgc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\vgc\GameControllerTrigger.h">
+      <Filter>src\vgc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\vgc\VirtualGameController.h">
+      <Filter>src\vgc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\socket\ODSocket.h">
+      <Filter>src\socket</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\socket\ResPonseThread.h">
+      <Filter>src\socket</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\socket\SocketThread.h">
+      <Filter>src\socket</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\DeviceData.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Dialog.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\InputDev.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\vgc\GameControllerDpad.h">
+      <Filter>src\vgc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\PopupLayer.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Toast.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\JniAndroid.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\GuideScene.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\LaunchScene.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\MyVgcScene.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\UIPageViewStandard.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\SetupScene.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\LoadingLayer.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\UploadData.h">
+      <Filter>src</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="game.rc">
+      <Filter>resource</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+</Project>

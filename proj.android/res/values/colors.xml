@@ -1,0 +1,44 @@
+<resources>
+
+    <color name="black_overlay">#66000000</color>
+    <color name="background_holo_dark">#ff000000</color>
+    <color name="background_holo_light">#fff3f3f3</color>
+    <color name="bright_foreground_holo_dark">@color/background_holo_light</color>
+    <color name="bright_foreground_holo_light">@color/background_holo_dark</color>
+    <color name="bright_foreground_disabled_holo_dark">#ff4c4c4c</color>
+    <color name="bright_foreground_disabled_holo_light">#ffb2b2b2</color>
+    <color name="bright_foreground_inverse_holo_dark">@color/bright_foreground_holo_light</color>
+    <color name="bright_foreground_inverse_holo_light">@color/bright_foreground_holo_dark</color>
+    
+    
+    <color name="BLACK">#000000</color>
+    <color name="White">#ffffff</color>
+    <color name="snow">#FFFAFA</color>
+    <color name="transparent">#00000000</color>
+    <color name="gray">#d3d3d3</color>
+    <color name="yellow">#ffff00</color>
+    <color name="textcolor">#6b6a6e</color>
+    <color name="list_green_selector">#8cfffe</color>
+    <color name="game_item_masking">#f0424242</color>
+    <color name="gloud_green">#049b03</color>
+    
+    <color name="server_green">#05f91c</color>
+    <color name="server_yellow">#f0f246</color>
+    <color name="server_red">#f24a17</color>
+    <color name="server_disenable_color">#b6b5b9</color>
+    <color name="circle_color">#ff323a45</color>
+    <color name="ring_color">#ff14b9d6</color>
+    <color name="main_user_center_bk">#6c19366f</color>
+    <color name="blue_text">#1161cb</color>
+    <color name="gree_text">#1fce23</color>
+    <color name="blue_line">#00a0e9</color>
+    <color name="sign_text_color">#fca317</color>
+    <color name="bottom_key_tips_color">#a0a0a0</color>
+    <color name="game_type_unselect_color">#FFDCDCDC</color>
+    <color name="game_type_select_color">#ffffffff</color>
+    
+    <color name="result_view">#b0000000</color>
+    <color name="viewfinder_mask">#60000000</color>
+    <color name="possible_result_points">#c0ffff00</color> 
+    <color name="capture_text_cover_bg">#99535353</color>
+</resources>

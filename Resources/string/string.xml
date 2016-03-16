@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+
+	<string name="waiting">请稍等...</string>	
+	<string name="find_device">正在为您寻找格来云游戏</string>	
+	<string name="connecting_device">正在连接您的格来云游戏</string>	
+	<string name="paired">已配对</string>	
+	<string name="unpaired">未配对</string>	
+	<string name="no_wifi">未连接</string>	
+	
+	<string name="no_connect_title">无法连接</string>
+	<string name="no_connect_msg">请检查您的网络连接</string>
+	<string name="error_connect_msg">请确认:
+	1.您的网络连接.
+	2.格来云游戏网络连接.</string>
+	<string name="ok_button">确定</string>	
+	<string name="cancel_button">取消</string>	
+	<string name="tip_title">提示</string>
+	<string name="tip_msg">最多支持4个手柄</string>	
+	<string name="exit_tip">再按一次返回键退出</string>
+	<string name="disconnect_gloud_title">断开连接</string>
+	<string name="disconnect_gloud_msg">已经与您的游戏大厅断开连接</string>
+	<string name="open_gloud_game">打开格来云游戏</string>
+	
+	<string name="download_title">发现新版本</string>
+	<string name="download_msg">发现有新版本,是否升级?</string>
+	
+	<string name="timeout_title">查找超时</string>
+	<string name="timeout_msg">未发现格来云大厅
+请确保手机与您的格来云大厅处于同一局域网环境</string>
+	<string name="timeout_cancel">跳过</string>
+	<string name="timeout_ok">重试</string>
+	<string name="swap_position_success">更换成功</string>
+	<string name="swap_position_error">更换失败</string>
+	<string name="position_self">我</string>
+	<string name="position_empty">空</string>
+	
+	<string name="text_wifi">当前WIFI:%s</string>
+	
+	<string name="title_qr_scan">扫描结果</string>
+	<string name="text_qr_scan_msg">是否连接 %s ？</string>
+	<string name="text_qr_scan_error">无法识别</string>
+	
+	
+	
+	
+	
+	
+</resources>

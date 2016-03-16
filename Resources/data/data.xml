@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    
+    <!-- Android平台 1:官方带下载链接gloud; 0:特殊渠道不带下载链接gloudc  -->
+    <string name="download_gloud_flags">1</string>
+    
+    <!-- 发布平台 0: Android, 1:Win32, 2:Linux, 3: IOS App Store, 4:IOS Enterprise  -->
+    <string name="client_type">3</string>
+    
+</resources>

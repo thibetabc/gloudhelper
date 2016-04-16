@@ -13,6 +13,9 @@
 #import "NetServiceBrowser.h"
 #import "Reachability.h"
 
+#import <AddressBook/AddressBook.h>
+#import <Contacts/Contacts.h>
+
 NetServiceBrowser *netServiceBrowser = nil;//Bonjour客户端发现本地服务
 
 JniAndroid::JniAndroid()
@@ -217,6 +220,212 @@ std::string JniAndroid::JniGetPhoneModel()
     if ([platform isEqualToString:@"x86_64"])    return "iPhone Simulator";
     return [platform UTF8String];
     
+    
+}
+
+
+
+
+void JniAndroid::getPhoneContacts(std::vector<Contacts> &mContacts)
+{
+    
+    CFErrorRef error;
+    //新建一个通讯录类
+    ABAddressBookRef _addressBook = ABAddressBookCreateWithOptions(NULL,&error);
+    if ([[UIDevice currentDevice].systemVersion floatValue]>=6.0)
+    {
+        ABAddressBookRequestAccessWithCompletion(_addressBook, nullptr);
+        ABAuthorizationStatus authStatus = ABAddressBookGetAuthorizationStatus();
+        if(authStatus != kABAuthorizationStatusAuthorized)
+        {
+            log("未授权，请打开");
+            UIAlertView *av = [[UIAlertView alloc]
+                               initWithTitle:@"好牌"
+                               message:@"你未开启”允许好牌访问通讯录“，请到系统设置-隐私-通讯录中开启"
+                               delegate:nil
+                               cancelButtonTitle:nil
+                               otherButtonTitles:@"确定", nil, nil];
+            [av show];
+            return;
+        }
+    }
+    
+    
+    if (_addressBook)
+    {
+        if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 9.0)
+        {
+            CNContactStore *store = [[CNContactStore alloc] init];
+            CNContactFetchRequest *request = [[CNContactFetchRequest alloc] initWithKeysToFetch:@[CNContactFamilyNameKey,CNContactGivenNameKey,CNContactPhoneNumbersKey]];
+            NSError *error = nil;
+            //执行获取通讯录请求，若通讯录可获取，flag为YES，代码块也会执行，若获取失败，flag为NO，代码块不执行
+            BOOL flag = [store enumerateContactsWithFetchRequest:request error:&error usingBlock:^(CNContact * _Nonnull contact, BOOL * _Nonnull stop)
+                         {
+                             
+                             struct Contacts tmpContacts;
+                             
+                             //名字
+                             NSString *name = @"";
+                             if ([NSString stringWithFormat:@"%@%@",contact.familyName,contact.givenName]) {
+                                 name =  [NSString stringWithFormat:@"%@%@",contact.familyName,contact.givenName];
+                                 
+                             }
+                             tmpContacts.name = [name UTF8String];
+                             
+                             //号码
+                             NSString *strPhone = @"";
+                             for(CNLabeledValue<CNPhoneNumber*>* phone in contact.phoneNumbers)
+                             {
+                                 strPhone = phone.value.stringValue;
+                                 tmpContacts.strTelephone.push_back([strPhone UTF8String]);
+                             }
+                             
+                             mContacts.push_back(tmpContacts);
+                         }];
+            if (flag)
+            {
+                NSLog(@"通讯录可获取");
+            }
+            [request autorelease];
+            [store autorelease];
+            
+        }
+        else
+        {
+            //获取所有联系人的数组
+            NSArray*  _arrayRef = (NSArray*) ABAddressBookCopyArrayOfAllPeople(_addressBook);
+            //循环, 获取每个人的个人信息
+            for (id obj in _arrayRef)
+            {
+                struct Contacts tmpContacts;
+                
+                //获取个人
+                ABRecordRef person = (__bridge ABRecordRef)obj;
+                //获取个人名字
+                CFTypeRef abName = ABRecordCopyValue(person, kABPersonFirstNameProperty);
+                CFTypeRef abLastName = ABRecordCopyValue(person, kABPersonLastNameProperty);
+                CFStringRef abFullName = ABRecordCopyCompositeName(person);
+                NSString* nameString = (__bridge NSString*)abName;
+                NSString* lastNameString = (__bridge NSString*)abLastName;
+                if ((__bridge id) abFullName != nil)
+                {
+                    nameString = (__bridge NSString*)abFullName;
+                }
+                else
+                {
+                    if ((__bridge id)abLastName != nil)
+                    {
+                        nameString = [NSString stringWithFormat:@"%@%@",nameString,lastNameString];
+                    }
+                }
+                
+                tmpContacts.name = [nameString UTF8String];
+                ABMultiValueRef phones= ABRecordCopyValue(obj, kABPersonPhoneProperty);
+                for (NSInteger j=0; j<ABMultiValueGetCount(phones); j++)
+                {
+                    NSString *phone =(__bridge NSString*)ABMultiValueCopyValueAtIndex(phones, j);
+                    NSLog(@"%@: %@", nameString, phone);
+                    tmpContacts.strTelephone.push_back([phone UTF8String]);
+                }
+                
+                if (abName) CFRelease(abName);
+                if (abLastName) CFRelease(abLastName);
+                if (abFullName) CFRelease(abFullName);
+                mContacts.push_back(tmpContacts);
+                
+            }
+        }
+        log("===========得到通讯录数据===================");
+        for(auto person : mContacts)
+        {
+            for(auto telephone : person.strTelephone)
+            {
+                log("%s : %s", person.name.c_str(), telephone.c_str());
+            }
+        }
+    }
+
+    
+    //详见：http://www.oschina.net/code/snippet_2248391_51913
+    //去除数字以外的所有字符
+//    if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 9.0)
+//    {
+//        CNContactStore *store = [[CNContactStore alloc] init];
+//        CNContactFetchRequest *request = [[CNContactFetchRequest alloc] initWithKeysToFetch:@[CNContactFamilyNameKey,CNContactGivenNameKey,CNContactPhoneNumbersKey]];
+//        NSError *error = nil;
+//        NSMutableArray *nameArray = [[NSMutableArray alloc] init];
+//        NSMutableArray *phoneArray = [[NSMutableArray alloc]init];
+//        //执行获取通讯录请求，若通讯录可获取，flag为YES，代码块也会执行，若获取失败，flag为NO，代码块不执行
+//        BOOL flag = [store enumerateContactsWithFetchRequest:request error:&error usingBlock:^(CNContact * _Nonnull contact, BOOL * _Nonnull stop)
+//                     {
+//                         //去除数字以外的所有字符
+//                         NSCharacterSet *setToRemove = [[ NSCharacterSet characterSetWithCharactersInString:@"0123456789"]
+//                                                        invertedSet ];
+//                         NSString *strPhone = @"";
+//                         if (contact.phoneNumbers.count>0) {
+//                             strPhone  = [[[contact.phoneNumbers firstObject].value.stringValue componentsSeparatedByCharactersInSet:setToRemove] componentsJoinedByString:@""];
+//                         }
+//                         [phoneArray addObject:strPhone];
+//                         NSString *name = @"";
+//                         if ([NSString stringWithFormat:@"%@%@",contact.familyName,contact.givenName]) {
+//                             name =  [NSString stringWithFormat:@"%@%@",contact.familyName,contact.givenName];
+//                         }
+//                         [nameArray addObject:name];
+//                     }];
+//        if (flag) {
+//            NSLog(@"手机号%@",[phoneArray componentsJoinedByString:@","]);
+//            NSLog(@"名字%@",[nameArray componentsJoinedByString:@","]);
+//        }
+//    }
+//    else
+//    {
+//        NSMutableArray *nameArray = [[NSMutableArray alloc] init];
+//        NSMutableArray *phoneArray = [[NSMutableArray alloc]init];
+//        CFErrorRef *error = nil;
+//        ABAddressBookRef addressBook = ABAddressBookCreateWithOptions(NULL, error);
+//        __block BOOL accessGranted = NO;
+//        
+//        dispatch_semaphore_t sema = dispatch_semaphore_create(0);
+//        ABAddressBookRequestAccessWithCompletion(addressBook, ^(bool granted, CFErrorRef error)
+//        {
+//            accessGranted = granted;
+//            dispatch_semaphore_signal(sema);
+//        });
+//        dispatch_semaphore_wait(sema, DISPATCH_TIME_FOREVER);
+//        
+//        if (accessGranted)
+//        {
+//            
+//            CFArrayRef allPeople = ABAddressBookCopyArrayOfAllPeople (addressBook);
+//            CFIndex nPeople = ABAddressBookGetPersonCount (addressBook);
+//            
+//            
+//            for ( NSInteger i = 0 ; i < nPeople; i++)
+//            {
+//                ABRecordRef person = CFArrayGetValueAtIndex (allPeople, i);
+//                NSString *givenName = (__bridge NSString *)(ABRecordCopyValue (person, kABPersonFirstNameProperty )) == nil ? @"" : (__bridge NSString *)(ABRecordCopyValue (person, kABPersonFirstNameProperty ));
+//                NSString *familyName = (__bridge NSString *)(ABRecordCopyValue (person, kABPersonLastNameProperty )) == nil ? @"" : (__bridge NSString *)(ABRecordCopyValue (person, kABPersonLastNameProperty ));
+//                ABMultiValueRef phoneNumbers = ABRecordCopyValue(person, kABPersonPhoneProperty);
+//                NSArray *array = CFBridgingRelease(ABMultiValueCopyArrayOfAllValues(phoneNumbers));
+//                NSString *phoneNumber = @"";
+//                if (array.count > 0)
+//                {
+//                    phoneNumber = [array firstObject];
+//                }
+//                
+//                NSDictionary *dic = [[NSDictionary alloc] initWithObjectsAndKeys:[NSString stringWithFormat:@"%@%@",familyName,givenName],@"name",phoneNumber,@"phone",[NSNumber numberWithBool:NO],@"isUser",nil];
+//                //去除数字以外的所有字符
+//                NSCharacterSet *setToRemove = [[ NSCharacterSet characterSetWithCharactersInString:@"0123456789"]
+//                                               invertedSet ];
+//                NSString *strPhone = [[phoneNumber componentsSeparatedByCharactersInSet:setToRemove] componentsJoinedByString:@""];
+//                [phoneArray addObject:strPhone];
+//                NSString *name = [NSString stringWithFormat:@"%@%@",familyName,givenName];
+//                [nameArray addObject:name];
+//            }
+//            NSLog(@"手机号%@",[phoneArray componentsJoinedByString:@","]);
+//            NSLog(@"名字%@",[nameArray componentsJoinedByString:@","]);
+//        }
+//    }
     
 }
 

@@ -31,6 +31,8 @@
 		629903F31C99192B00591F59 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 629903F21C99192B00591F59 /* CoreMotion.framework */; };
 		629903F51C9919D500591F59 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 629903F41C9919D500591F59 /* UIKit.framework */; };
 		629903F71C9919E500591F59 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 629903F61C9919E500591F59 /* OpenGLES.framework */; };
+		62BD2C311CC274F70091331A /* Contacts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62BD2C301CC274F70091331A /* Contacts.framework */; };
+		62DD1DB01CC2377400BC9F77 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62DD1DAF1CC2377400BC9F77 /* AddressBook.framework */; };
 		650522B11C7716C900F216A0 /* StringUtil.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 650522AE1C7716C900F216A0 /* StringUtil.cpp */; };
 		650522B21C7716C900F216A0 /* UploadData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 650522AF1C7716C900F216A0 /* UploadData.cpp */; };
 		650522B41C7AC10C00F216A0 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 650522B31C7AC10C00F216A0 /* AudioToolbox.framework */; };
@@ -181,6 +183,8 @@
 		629903F41C9919D500591F59 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.2.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
 		629903F61C9919E500591F59 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.2.sdk/System/Library/Frameworks/OpenGLES.framework; sourceTree = DEVELOPER_DIR; };
 		62993E281C9996B600591F59 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; name = .gitignore; path = ../.gitignore; sourceTree = "<group>"; };
+		62BD2C301CC274F70091331A /* Contacts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Contacts.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.2.sdk/System/Library/Frameworks/Contacts.framework; sourceTree = DEVELOPER_DIR; };
+		62DD1DAF1CC2377400BC9F77 /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.2.sdk/System/Library/Frameworks/AddressBook.framework; sourceTree = DEVELOPER_DIR; };
 		650522AE1C7716C900F216A0 /* StringUtil.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = StringUtil.cpp; sourceTree = "<group>"; };
 		650522AF1C7716C900F216A0 /* UploadData.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = UploadData.cpp; sourceTree = "<group>"; };
 		650522B01C7716C900F216A0 /* UploadData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UploadData.h; sourceTree = "<group>"; };
@@ -320,6 +324,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				62BD2C311CC274F70091331A /* Contacts.framework in Frameworks */,
+				62DD1DB01CC2377400BC9F77 /* AddressBook.framework in Frameworks */,
 				65CA0E8D1C83EDB10087F426 /* libz.tbd in Frameworks */,
 				629903F71C9919E500591F59 /* OpenGLES.framework in Frameworks */,
 				629903F51C9919D500591F59 /* UIKit.framework in Frameworks */,
@@ -402,6 +408,8 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				62BD2C301CC274F70091331A /* Contacts.framework */,
+				62DD1DAF1CC2377400BC9F77 /* AddressBook.framework */,
 				629903F61C9919E500591F59 /* OpenGLES.framework */,
 				629903F41C9919D500591F59 /* UIKit.framework */,
 				629903F21C99192B00591F59 /* CoreMotion.framework */,
@@ -453,9 +461,8 @@
 		46880B8319C43A87006E1F66 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				65E47AA01C50B9E4004503AE /* vgc */,
-				65E47A891C50B9D4004503AE /* jsoncpp */,
-				65E47A7F1C50B9C4004503AE /* socket */,
+				46880B8419C43A87006E1F66 /* AppDelegate.cpp */,
+				46880B8519C43A87006E1F66 /* AppDelegate.h */,
 				656294531C4F467300323CA5 /* BaseLayer.cpp */,
 				656294541C4F467300323CA5 /* BaseLayer.h */,
 				656294551C4F467300323CA5 /* DeviceControllerScene.cpp */,
@@ -470,12 +477,10 @@
 				6562945E1C4F467300323CA5 /* GuideScene.cpp */,
 				6562945F1C4F467300323CA5 /* GuideScene.h */,
 				656294601C4F467300323CA5 /* InputDev.h */,
-				65312E501C7707F800DA79DB /* JniAndroid.mm */,
 				656294611C4F467300323CA5 /* JniAndroid.cpp */,
 				656294621C4F467300323CA5 /* JniAndroid.h */,
-				650522AE1C7716C900F216A0 /* StringUtil.cpp */,
-				650522AF1C7716C900F216A0 /* UploadData.cpp */,
-				650522B01C7716C900F216A0 /* UploadData.h */,
+				65312E501C7707F800DA79DB /* JniAndroid.mm */,
+				65E47A891C50B9D4004503AE /* jsoncpp */,
 				656294641C4F467300323CA5 /* LaunchScene.cpp */,
 				656294651C4F467300323CA5 /* LaunchScene.h */,
 				656294661C4F467300323CA5 /* LoadingLayer.cpp */,
@@ -486,6 +491,8 @@
 				6562946D1C4F467300323CA5 /* PopupLayer.h */,
 				6562946E1C4F467300323CA5 /* SetupScene.cpp */,
 				6562946F1C4F467300323CA5 /* SetupScene.h */,
+				65E47A7F1C50B9C4004503AE /* socket */,
+				650522AE1C7716C900F216A0 /* StringUtil.cpp */,
 				656294711C4F467300323CA5 /* StringUtil.h */,
 				656294721C4F467300323CA5 /* TextTip.cpp */,
 				656294731C4F467300323CA5 /* TextTip.h */,
@@ -493,12 +500,13 @@
 				656294751C4F467300323CA5 /* Toast.h */,
 				656294761C4F467300323CA5 /* UIPageViewStandard.cpp */,
 				656294771C4F467300323CA5 /* UIPageViewStandard.h */,
+				650522AF1C7716C900F216A0 /* UploadData.cpp */,
+				650522B01C7716C900F216A0 /* UploadData.h */,
+				65E47AA01C50B9E4004503AE /* vgc */,
 				656294791C4F467300323CA5 /* VgcScene.cpp */,
 				6562947A1C4F467300323CA5 /* VgcScene.h */,
 				6562947B1C4F467300323CA5 /* XMLParser.cpp */,
 				6562947C1C4F467300323CA5 /* XMLParser.h */,
-				46880B8419C43A87006E1F66 /* AppDelegate.cpp */,
-				46880B8519C43A87006E1F66 /* AppDelegate.h */,
 			);
 			name = Classes;
 			path = ../Classes;

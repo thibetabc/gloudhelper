@@ -57,4 +57,13 @@ public:
 	std::string JniGetPhoneModel();
 private:
 	int mJniRequestedOrientation;
+public:
+    struct Contacts
+    {
+        std::string name;
+        std::vector<std::string> strTelephone;
+        
+    };
+public:
+    void getPhoneContacts(std::vector<Contacts> &mContacts);
 };

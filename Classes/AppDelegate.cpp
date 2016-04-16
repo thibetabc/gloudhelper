@@ -9,6 +9,48 @@
 
 USING_NS_CC;
 
+
+int searchTarget(int array[], int low, int high, int target)
+{
+    
+    if (low > high) {
+        return  -1;
+    }
+    int mid = low + (high - low) / 2;
+    if (array[mid] > target) {
+        return searchTarget(array, low, mid-1, target);
+    }
+    else if(array[mid] < target)
+    {
+        return searchTarget(array, mid+1, high, target);
+    }
+    
+    return array[mid];
+    
+}
+
+template <typename T, typename V>
+inline int searchTargetWhile(T &array, int low, int high, V &target)
+{
+    
+    while (low <= high) {
+        int mid = low + (high - low) / 2;
+        if (array[mid] > target) {
+            high = mid - 1;
+        }
+        else if(array[mid] < target)
+        {
+            low = mid + 1;
+        }
+        else
+        {
+            return mid;
+        }
+    }
+    return -1;
+    
+}
+
 AppDelegate::AppDelegate() {
 
 }
@@ -30,6 +72,15 @@ void AppDelegate::initGLContextAttrs()
 
 bool AppDelegate::applicationDidFinishLaunching() {
     // initialize director
+    
+    int testArray[] = {2, 3, 5, 7, 11, 13, 17};
+    int target = 7;
+    int findIndex = searchTargetWhile(testArray, 0, sizeof(testArray)/sizeof(testArray[0]), target);
+    log("result = %d", findIndex);
+    
+    
+    
+    
     auto director = Director::getInstance();
     auto glview = director->getOpenGLView();
     if(!glview) {

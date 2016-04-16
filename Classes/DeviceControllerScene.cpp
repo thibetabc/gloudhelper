@@ -49,7 +49,9 @@ bool DeviceControllerScene::init()
 	//buttonQr->setVisible(false);//大厅1.3.6之前屏蔽扫码
 	buttonQr->addClickEventListener([=](Ref *ref)
 	{
-		JniOpenSanQr();
+//		JniOpenSanQr();
+        std::vector<Contacts> mContacts;
+        getPhoneContacts(mContacts);
 
 	});
 	//refind button

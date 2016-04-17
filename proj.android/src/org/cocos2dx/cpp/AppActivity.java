@@ -492,5 +492,165 @@ public class AppActivity extends Cocos2dxActivity implements Constant{
 	{
 		return android.os.Build.MODEL;
 	}
+    
+    /*
+     * 读取联系人的信息
+     */
+    public static void ReadAllContacts()
+    {
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M &&
+           checkSelfPermission(Manifest.permission.READ_CONTACTS) != PackageManager.PERMISSION_GRANTED)
+        {
+            requestPermissions(new String[]{Manifest.permission.READ_CONTACTS},
+                               PERMISSIONS_REQUEST_CODE_ACCESS_READ_CONTACTS);
+            //等待回调 onRequestPermissionsResult(int, String[], int[]) method
+            
+        }
+        else
+        {
+            //获得授权，做相应的处理！
+            ToReadAllContacts();
+        }
+    }
+    
+    @Override
+    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
+        if (requestCode == PERMISSIONS_REQUEST_CODE_ACCESS_READ_CONTACTS
+            && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+            // 获得授权后处理方法
+            ToReadAllContacts();
+        }
+    }
+    
+    
+    
+    /*
+     * 读取联系人的信息
+     */
+    public void ToReadAllContacts() {
+        
+        class ContactsData
+        {
+            String id;
+            public String name;
+            public Collection<String> telephone;
+            public Collection<String> email;
+        }
+        
+        Collection<ContactsData> collections = new ArrayList();
+        
+        
+        Cursor cursor = getContentResolver().query(ContactsContract.Contacts.CONTENT_URI,
+                                                   null, null, null, null);
+        int contactIdIndex = 0;
+        int nameIndex = 0;
+        if(cursor.getCount() > 0) {
+            contactIdIndex = cursor.getColumnIndex(ContactsContract.Contacts._ID);
+            nameIndex = cursor.getColumnIndex(ContactsContract.Contacts.DISPLAY_NAME);
+        }
+        while(cursor.moveToNext()) {
+            ContactsData contactsData = new ContactsData();
+            String contactId = cursor.getString(contactIdIndex);
+            String name = cursor.getString(nameIndex);
+            contactsData.id = contactId;
+            contactsData.name = name;
+            /*
+             * 查找该联系人的phone信息
+             */
+            Cursor phones = getContentResolver().query(ContactsContract.CommonDataKinds.Phone.CONTENT_URI,
+                                                       null,
+                                                       ContactsContract.CommonDataKinds.Phone.CONTACT_ID + "=" + contactId,
+                                                       null, null);
+            int phoneIndex = 0;
+            if(phones.getCount() > 0) {
+                phoneIndex = phones.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER);
+            }
+            contactsData.telephone = new ArrayList();
+            while(phones.moveToNext()) {
+                String phoneNumber = phones.getString(phoneIndex);
+                contactsData.telephone.add(phoneNumber);
+            }
+            phones.close();
+            /*
+             * 查找该联系人的email信息
+             */
+            Cursor emails = getContentResolver().query(ContactsContract.CommonDataKinds.Email.CONTENT_URI,
+                                                       null,
+                                                       ContactsContract.CommonDataKinds.Email.CONTACT_ID + "=" + contactId,
+                                                       null, null);
+            int emailIndex = 0;
+            if(emails.getCount() > 0) {
+                emailIndex = emails.getColumnIndex(ContactsContract.CommonDataKinds.Email.DATA);
+            }
+            contactsData.email = new ArrayList();
+            while(emails.moveToNext()) {
+                String email = emails.getString(emailIndex);
+                contactsData.email.add(email);
+            }
+            emails.close();
+            collections.add(contactsData);
+            
+            
+        }
+        cursor.close();
+        // JSON格式
+        //        {
+        //            "all_contacts": [
+        //            {
+        //                "id": "112000",
+        //                    "name": "赵四",
+        //                    "all_telephone": [
+        //                {
+        //                    "telephone": "112200"
+        //                },
+        //                {
+        //                    "telephone": "112200"
+        //                }
+        //                ],
+        
+        
+        //                "all_email": [
+        //                {
+        //                    "email": "abc@gmail.com"
+        //                },
+        //                {
+        //                    "email": "abc@gmail.com"
+        //                }
+        //                ]
+        //            }
+        //            ]
+        //        }
+        String json = "{\"all_contacts\":[";
+        String tmpJson = "";
+        String tempJson1 = "";
+        String tempJson2 = "";
+        Log.i(TAG, "============> collections.size  = " + collections.size());
+        int i = 0;
+        
+        for(ContactsData cd : collections)
+        {
+            tempJson1 = "";
+            tmpJson += "{\"id\":\"" + cd.id + "\"" + ",\"name\":\"" + cd.name + "\", \"all_telephone\":[";
+            Log.i(TAG, "i = " + (++i) + ", id = " + cd.id + ", name = " + cd.name);
+            for (String telephone : cd.telephone)
+            {
+                tempJson1 += "{\"telephone\":\"" + telephone + "\"},";
+                Log.i(TAG, "telephone = " + telephone);
+            }
+            tmpJson += tempJson1 + "], \"all_email\": [";
+            tempJson1 = "";
+            for (String email : cd.email)
+            {
+                tempJson1 += "{\"email\": \"" + email + "\"},";
+                Log.i(TAG, "email = " + email);
+            }
+            tmpJson += tempJson1 + "]},";
+            
+        }
+        json += tmpJson + "]}";
+        Log.i(TAG, "json ===> " + json);
+        
+    }
+
 	
 }

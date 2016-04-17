@@ -299,7 +299,21 @@ std::string JniAndroid::JniGetPhoneModel()
 	return phoneModel;
 }
 
-#else
+void JniAndroid::getPhoneContacts(std::vector<Contacts> &mContacts)
+{
+    bool isRet = JniHelper::getStaticMethodInfo(info, "org/cocos2dx/cpp/AppActivity", "testReadAllContacts", "()V");
+    if (isRet)
+    {
+        info.env->CallStaticObjectMethod(info.classID, info.methodID);
+    }
+}
+//http://www.mamicode.com/info-detail-503936.html
+//http://www.cnblogs.com/zenny-chen/p/4273174.html
+/******************************************************************************************************************************************************************/
+
+
+
+#else   //win32
 
 void JniAndroid::JniSetRequestedOrientation(int requestedOrientation)
 {
